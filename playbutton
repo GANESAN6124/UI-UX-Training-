@@ -1,0 +1,121 @@
+
+<div class="container">
+<video width="500" height="240" controls class="vedio ">
+ <source src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4">
+ </video>
+
+<ul class="centerplayPasuse">
+ <li class="first">
+ <i><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%"><path fill="#fff" d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z" ></path></svg></i>
+ </li>
+ <li class="second">
+ <i><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%"><path fill=#fff d="M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z"></path></svg></i>
+ </li>
+</ul>
+
+
+
+.container{
+ position:relative;
+ background-color: green;
+ width:fit-content;
+
+}
+
+
+.centerplayPasuse{
+ position: absolute;
+ top: 45%;
+ left: 50%;
+ transform: translateX(-50%) translateY(-50%);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding:0;
+ margin:0;
+ }
+ .centerplayPasuse li{
+ position: relative;
+ width: 50px;
+ height: 50px;
+ background: #000;
+/*     border-radius: 26px; */
+
+ display: flex;
+ list-style: none;
+/*  background-color: black; */
+ border-radius: 50%;
+ border: 0;
+ visibility: hidden;
+ }
+li.first{
+ position: absolute;
+ 
+}
+.centerplayPasuse li i svg{
+	width:40px;
+	height:40px;
+	margin:5px;
+
+}
+ .centerplayPasuse li.first.active{
+ animation: animr .5s linear 1 normal forwards;
+ }
+ .centerplayPasuse li.second.active{
+ animation: animr .5s linear 1 normal forwards;
+ }
+ @keyframes animr{
+ 0%{
+ opacity: 1;
+ visibility: hidden;
+ transform: scale(1);
+ }
+ 
+ 100%{
+ opacity: 0;
+ visibility: visible;
+ transform: scale(2);
+ }
+ }
+
+// let play = document.querySelector(".play")
+// play.onclick = () =>{
+// play.classList.toggle('active')
+// cpb.classList.toggle('active')
+// }
+let vi = document.querySelector(".vedio")
+let cpb = document.querySelector(".centerplayPasuse");
+ cpb.onclick = () =>{
+ cpb.classList.toggle('active');
+ // play.classList.toggle('active')
+ }
+
+ let first = document.querySelector('.first');
+ let second = document.querySelector('.second');
+ cpb.addEventListener( 'click' , eff)
+function eff(){
+ if(first.classList.contains('active')){
+ 
+ first.classList.remove('active');
+ second.classList.add('active')
+ }
+ else{
+ first.classList.add('active');
+ second.classList.remove('active');
+ }
+ }
+ vi.addEventListener('click', eff)
+ cpb.addEventListener('click', playPause);
+
+ function playPause(){
+ if(vi.paused){
+ vi.play()
+
+ }else{
+ vi.pause()
+ }
+ }		// let play = document.querySelector(".play")
+// play.onclick = () =>{
+// play.classList.toggle('active')
+// cpb.classList.toggle('active')
+// }
